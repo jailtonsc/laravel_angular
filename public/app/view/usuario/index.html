@@ -1,0 +1,28 @@
+<div id="content">
+    <div class="container">
+        <div class="page-header">
+            <h1>Lista de Cliente</h1>
+        </div>
+
+            <label>Buscar</label>
+            <input type="text" ng-model="criterioDeBusca"/>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="usuario in usuarios | filter:criterioDeBusca">
+                    <td>{{usuario.name}}</td>
+                    <td>{{usuario.email}}</td>
+                    <td><a href="" class="btn btn-primary">Editar</a> <a href="" class="btn btn-danger">Excluir</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

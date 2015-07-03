@@ -1,0 +1,24 @@
+<div id="content">
+    <div class="container">
+        <div class="page-header">
+            <h1>Cadastro de Cliente</h1>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="cliente in clientes">
+                    <td>{{cliente.nome}}</td>
+                    <td>{{cliente.email}}</td>
+                    <td><a href="" class="btn btn-primary">Editar</a> <a href="" class="btn btn-danger">Excluir</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
