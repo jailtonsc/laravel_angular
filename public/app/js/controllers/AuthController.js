@@ -1,34 +1,43 @@
-"use strict";
+(function () {
+    'use strict';
 
-app.controller('AuthController', function ($scope, $http, $rootScope, $location, config) {
+    angular
+        .module('MyApp')
+        .controller('AuthController', Auth);
 
-    $scope.email = "";
-    $scope.password = "";
+    Auth.$injector = ['$http', '$rootScope', '$location', 'config'];
 
-    $scope.error = {
-        valid: false,
-        message: ""
-    };
+    function Auth($http, $rootScope, $location, config) {
+        var vm = this;
 
+        vm.error = {
+            valid: false,
+            message: ''
+        };
 
-    $scope.logar = function () {
-        $http.post(config.accessTokenUrl, {
-            username: $scope.email,
-            password: $scope.password,
-            client_id: "1",
-            client_secret: "teste",
-            grant_type: "password"
-        }).success(function (data) {
-            if (typeof data.access_token != "undefined" && data.access_token != "") {
-                $rootScope.token = data.access_token;
+        vm.logar = logar;
 
-                $location.path('usuario');
-            }
-
-        }).error(function (data) {
-            $scope.error.valid = true;
-            $scope.error.message = data.error_description
-        });
+        function logar() {
+            $http.post(config.accessTokenUrl, {
+                username: vm.email,
+                password: vm.password,
+                client_id: config.clientId,
+                client_secret: config.clientSecret,
+                grant_type: config.grantType
+            }).success(function (data) {
+                if (typeof data.access_token != 'undefined' && data.access_token != '') {
+                    $rootScope.token = data.access_token;
+                    $location.path('usuario');
+                }
+            }).error(function (data) {
+                vm.error.valid = true;
+                vm.error.message = data.error_description
+            });
+        }
     }
+})();
 
-});
+
+
+
+

@@ -5,15 +5,15 @@
         </div>
         <form class="form">
 
-            <div class="alert alert-danger" ng-show="error.valid">
-                <strong>Error!</strong> {{ error.message }}
+            <div class="alert alert-danger" ng-show="vm.error.valid">
+                <strong>Error!</strong> {{ auth.error.message }}
             </div>
 
             <div class="col-xs-12">
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="email">E-mail</label>
-                        <input type="text" name="email" id="email" class="form-control" placeholder="E-mal" ng-model="email" />
+                        <input type="text" name="email" id="email" class="form-control" placeholder="E-mal" ng-model="vm.email" />
                     </div>
                 </div>
             </div>
@@ -21,14 +21,14 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="password">Senha</label>
-                        <input type="password" name="password" id="password" class="form-control" ng-model="password" />
+                        <input type="password" name="password" id="password" class="form-control" ng-model="vm.password" />
                     </div>
                 </div>
             </div>
             <div class="col-xs-12">
                 <div class="col-md-12">
                     <div class="form-group">
-                         <button class="btn btn-primary" ng-click="logar()">Logar</button>
+                         <button class="btn btn-primary" ng-click="vm.logar()">Logar</button>
                     </div>
                 </div>
             </div>

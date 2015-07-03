@@ -5,7 +5,7 @@
         </div>
 
             <label>Buscar</label>
-            <input type="text" ng-model="criterioDeBusca"/>
+            <input type="text" class="form-control" ng-model="vm.criterioDeBusca" />
 
         <table class="table">
             <thead>
@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="usuario in usuarios | filter:criterioDeBusca">
+                <tr ng-repeat="usuario in vm.usuarios | filter:vm.criterioDeBusca">
                     <td>{{usuario.name}}</td>
                     <td>{{usuario.email}}</td>
                     <td><a href="" class="btn btn-primary">Editar</a> <a href="" class="btn btn-danger">Excluir</a></td>

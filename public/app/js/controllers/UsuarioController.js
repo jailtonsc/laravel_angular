@@ -1,17 +1,29 @@
-app.controller('UsuarioController', function ($scope, $http, $rootScope, config) {
+(function () {
+    "use strict";
 
-    $scope.usuarios = [];
+    angular
+        .module("MyApp")
+        .controller('UsuarioController', Usuario);
 
-    $http({
-        method: "GET",
-        url: config.baseUrl + "/user",
-        headers: {
-            Authorization: "Bearer " + $rootScope.token
+    function Usuario($http, $rootScope, config) {
+        var vm = this;
+
+        vm.usuarios = [];
+
+        getUsuarios();
+
+        function getUsuarios() {
+            $http({
+                method: "GET",
+                url: config.baseUrl + "/user",
+                headers: {
+                    Authorization: "Bearer " + $rootScope.token
+                }
+            }).success(function (data) {
+                vm.usuarios = data;
+            }).error(function (data) {
+                $location.path('/');
+            });
         }
-    }).success(function (data){
-        $scope.usuarios = data;
-    }).error(function (data) {
-        $location.path('/');
-    });;
-
-});
+    }
+})();

@@ -1,13 +1,26 @@
-app.config(function ($routeProvider) {
-    $routeProvider
-        .when('/', {
-            templateUrl: 'app/view/auth/login.html',
-            controller: 'AuthController'
-        }).when('/usuario', {
-            templateUrl: 'app/view/usuario/index.html',
-            controller: 'UsuarioController'
-        }).when('/usuario/cadastro', {
-            templateUrl: 'app/view/usuario/cadastro.html',
-            controller: 'UsuarioController'
-        });
-});
+(function () {
+    "use strict";
+
+    angular
+        .module("MyApp")
+        .config(Config);
+
+    Config.$injector = ['$routeProvider'];
+
+    function Config ($routeProvider){
+        $routeProvider
+            .when('/', {
+                templateUrl: 'app/view/auth/login.html',
+                controller: 'AuthController',
+                controllerAs: 'vm'
+            }).when('/usuario', {
+                templateUrl: 'app/view/usuario/index.html',
+                controller: 'UsuarioController',
+                controllerAs: 'vm'
+            }).when('/usuario/cadastro', {
+                templateUrl: 'app/view/usuario/cadastro.html',
+                controller: 'UsuarioController',
+                controllerAs: 'vm'
+            });
+    }
+})();

@@ -15,7 +15,15 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         // $this->call(UserTableSeeder::class);
-        factory(\App\User::class, 10000)->create();
+        /*
+        factory(\App\User::class)->create([
+            'name' => 'Jailton',
+            'email' => 'jailton.dos.santos.cruz@gmail.com',
+            'password' => bcrypt(123456),
+            'remember_token' => str_random(10)
+        ]);*/
+
+        factory(\App\User::class, 500)->create();
 
         Model::reguard();
     }
