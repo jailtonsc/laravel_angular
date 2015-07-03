@@ -5,9 +5,9 @@
         .module('MyApp')
         .controller('AuthController', Auth);
 
-    Auth.$injector = ['$http', '$rootScope', '$location', 'config'];
+    Auth.$injector = ['$rootScope', '$location', 'AuthService'];
 
-    function Auth($http, $rootScope, $location, config) {
+    function Auth($rootScope, $location, AuthService) {
         var vm = this;
 
         vm.error = {
@@ -18,21 +18,18 @@
         vm.logar = logar;
 
         function logar() {
-            $http.post(config.accessTokenUrl, {
-                username: vm.email,
-                password: vm.password,
-                client_id: config.clientId,
-                client_secret: config.clientSecret,
-                grant_type: config.grantType
-            }).success(function (data) {
-                if (typeof data.access_token != 'undefined' && data.access_token != '') {
-                    $rootScope.token = data.access_token;
-                    $location.path('usuario');
-                }
-            }).error(function (data) {
-                vm.error.valid = true;
-                vm.error.message = data.error_description
-            });
+            AuthService
+                .logar(vm)
+                .success(function (data) {
+                    if (typeof data.access_token != 'undefined' && data.access_token != '') {
+                        $rootScope.token = data.access_token;
+                        $location.path('usuario');
+                    }
+                })
+                .error(function (data) {
+                    vm.error.valid = true;
+                    vm.error.message = data.error_description
+                });
         }
     }
 })();

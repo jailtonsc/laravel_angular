@@ -4,8 +4,8 @@
             <h1>Lista de Cliente</h1>
         </div>
 
-            <label>Buscar</label>
-            <input type="text" class="form-control" ng-model="vm.criterioDeBusca" />
+        <label>Buscar</label>
+        <input type="text" class="form-control" ng-model="vm.criterioDeBusca"/>
 
         <table class="table">
             <thead>
@@ -23,6 +23,14 @@
                 </tr>
             </tbody>
         </table>
+        <pagination
+                ng-model="vm.usuarios"
+                total-items="vm.usuarios.length"
+                max-size="5"
+                boundary-links="true"
+                ng-change="pageChanged()">
+        </pagination>
+
     </div>
 </div>
 

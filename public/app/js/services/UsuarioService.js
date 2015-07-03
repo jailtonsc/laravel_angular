@@ -7,18 +7,20 @@
 
     UsuarioService.$injector = ['$http', 'config'];
 
-    function UsuarioService() {
-        var _getContatos = function () {
-            return $http.get(config.baseUrl + "/contatos");
-        };
+    function UsuarioService($http, config) {
 
-        var _saveContato = function (contato) {
-            return $http.post(config.baseUrl + "/contatos", contato);
-        };
+        var _logar = function (auth){
+            $http.post(config.accessTokenUrl, {
+                username: auth.email,
+                password: auth.password,
+                client_id: config.clientId,
+                client_secret: config.clientSecret,
+                grant_type: config.grantType
+            })
+        }
 
         return {
-            getContatos: _getContatos,
-            saveContato: _saveContato
+            logar: _logar
         };
     }
 })();

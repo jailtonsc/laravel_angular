@@ -54,11 +54,14 @@
 <script src="{{ asset('app/lib/bootstrap/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('app/lib/angular/angular.min.js') }}"></script>
 <script src="{{ asset('app/lib/angular/angular-route.min.js') }}"></script>
+<script src="{{ asset('app/lib/ui-bootstrap-tpls-0.13.0.min.js') }}"></script>
 <script src="{{ asset('app/lib/angular/i18n/angular-locale_pt-br.js') }}"></script>
+
 <script src="{{ asset('app/js/app.js') }}"></script>
 <script src="{{ asset('app/js/config/config.js') }}"></script>
 <script src="{{ asset('app/js/config/route.js') }}"></script>
 <script src="{{ asset('app/js/controllers/UsuarioController.js') }}"></script>
 <script src="{{ asset('app/js/controllers/AuthController.js') }}"></script>
+<script src="{{ asset('app/js/services/AuthService.js') }}"></script>
 </body>
 </html>

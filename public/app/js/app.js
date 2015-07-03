@@ -3,6 +3,7 @@
 
     angular
         .module("MyApp", [
-            'ngRoute'
+            'ngRoute',
+            'ui.bootstrap'
         ]);
 })();
