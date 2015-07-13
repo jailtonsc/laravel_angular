@@ -21,6 +21,10 @@
                 templateUrl: 'app/view/usuario/cadastro.html',
                 controller: 'UsuarioController',
                 controllerAs: 'vm'
+            }).when('/imagem', {
+                templateUrl: 'app/view/imagem/index.html',
+                controller: 'ImagemController',
+                controllerAs: 'vm'
             });
     }
 })();

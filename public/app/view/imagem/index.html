@@ -1,0 +1,27 @@
+<div id="content">
+    <div class="container">
+        <div class="page-header">
+            <h1>Lista de Imagens</h1>
+        </div>
+
+        <label>Buscar</label>
+        <input type="text" class="form-control" ng-model="vm.criterioDeBusca"/>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Imagem</th>
+                <th>Descrição</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="imagem in vm.imagens | filter:vm.criterioDeBusca">
+                <td><img src="{{ imagem.src }}" width="100px" class="img-responsive img-thumbnail" alt="Imagem" /></td>
+                <td>{{imagem.nome}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+

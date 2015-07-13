@@ -60,6 +60,7 @@
 <script src="{{ asset('app/js/app.js') }}"></script>
 <script src="{{ asset('app/js/config/config.js') }}"></script>
 <script src="{{ asset('app/js/config/route.js') }}"></script>
+<script src="{{ asset('app/js/controllers/ImagemController.js') }}"></script>
 <script src="{{ asset('app/js/controllers/UsuarioController.js') }}"></script>
 <script src="{{ asset('app/js/controllers/AuthController.js') }}"></script>
 <script src="{{ asset('app/js/services/AuthService.js') }}"></script>
